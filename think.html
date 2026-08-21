@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Think | Brian Mandisodza</title>
+
+  <meta
+    name="description"
+    content="Investor thinking, frameworks, analysis and ideas by Brian Mandisodza."
+  >
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #f5f4ef;
+      --text: #111;
+      --muted: #666;
+      --line: #d8d7d1;
+      --card: #eeede7;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 26px 6%;
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      background: rgba(245, 244, 239, 0.94);
+      backdrop-filter: blur(10px);
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+    }
+
+    nav .links {
+      display: flex;
+      gap: 28px;
+      font-size: 13px;
+    }
+
+    nav a:hover {
+      opacity: 0.55;
+    }
+
+    .hero {
+      max-width: 1250px;
+      margin: auto;
+      padding: 130px 6% 110px;
+    }
+
+    .eyebrow {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: #888;
+      margin-bottom: 28px;
+    }
+
+    h1 {
+      font-size: clamp(60px, 10vw, 130px);
+      line-height: 0.9;
+      letter-spacing: -6px;
+      margin-bottom: 45px;
+    }
+
+    .hero p {
+      max-width: 720px;
+      font-size: 21px;
+      color: var(--muted);
+    }
+
+    .section {
+      max-width: 1250px;
+      margin: auto;
+      padding: 100px 6%;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: #888;
+      margin-bottom: 25px;
+    }
+
+    .section-title {
+      font-size: clamp(40px, 6vw, 70px);
+      line-height: 1;
+      letter-spacing: -3px;
+      margin-bottom: 25px;
+    }
+
+    .section-intro {
+      max-width: 700px;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .cards {
+      margin-top: 55px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+
+    .card {
+      background: var(--bg);
+      padding: 45px;
+      min-height: 300px;
+      transition: background 0.25s ease;
+    }
+
+    .card:hover {
+      background: var(--card);
+    }
+
+    .number {
+      font-size: 12px;
+      color: #888;
+      margin-bottom: 55px;
+    }
+
+    .card h3 {
+      font-size: 30px;
+      letter-spacing: -1px;
+      margin-bottom: 15px;
+    }
+
+    .card p {
+      color: var(--muted);
+      max-width: 500px;
+    }
+
+    .arrow {
+      display: inline-block;
+      margin-top: 25px;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .series {
+      margin-top: 55px;
+      border-top: 1px solid var(--line);
+    }
+
+    .series-item {
+      display: grid;
+      grid-template-columns: 100px 1fr 80px;
+      gap: 25px;
+      align-items: center;
+      padding: 25px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .series-number {
+      color: #888;
+      font-size: 13px;
+    }
+
+    .series-title {
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .series-status {
+      font-size: 12px;
+      color: #888;
+      text-align: right;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 30px 6%;
+      display: flex;
+      justify-content: space-between;
+      color: #777;
+      font-size: 12px;
+    }
+
+    @media (max-width: 800px) {
+
+      nav {
+        padding: 22px 5%;
+      }
+
+      nav .links {
+        display: none;
+      }
+
+      .hero {
+        padding: 90px 5% 80px;
+      }
+
+      h1 {
+        font-size: clamp(58px, 16vw, 90px);
+        letter-spacing: -4px;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
+
+      .section {
+        padding: 80px 5%;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .series-item {
+        grid-template-columns: 50px 1fr;
+      }
+
+      .series-status {
+        display: none;
+      }
+
+      footer {
+        flex-direction: column;
+        gap: 10px;
+        padding: 25px 5%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+
+    <a href="index.html" class="logo">
+      BRIAN MANDISODZA
+    </a>
+
+    <div class="links">
+      <a href="index.html">Home</a>
+      <a href="think.html">Think</a>
+      <a href="index.html#build">Build</a>
+      <a href="index.html#connect">Connect</a>
+      <a href="index.html#about">About</a>
+    </div>
+
+  </nav>
+
+
+  <main>
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+      <div class="eyebrow">
+        01 / Think
+      </div>
+
+      <h1>
+        Think like<br>
+        an investor.
+      </h1>
+
+      <p>
+        Exploring the mental models, frameworks and questions
+        behind better investment and business decisions.
+        The objective isn't to predict perfectly.
+        It's to think clearly under uncertainty.
+      </p>
+
+    </section>
+
+
+    <!-- INVESTOR THINKING -->
+
+    <section class="section">
+
+      <div class="section-label">
+        Investor Thinking
+      </div>
+
+      <h2 class="section-title">
+        Questions before answers.
+      </h2>
+
+      <p class="section-intro">
+        Good investing isn't simply about finding attractive assets.
+        It is about asking better questions, separating facts from
+        assumptions, understanding risk and judging what the market
+        may be missing.
+      </p>
+
+    </section>
+
+
+    <!-- CONTENT AREAS -->
+
+    <section class="section">
+
+      <div class="section-label">
+        Explore
+      </div>
+
+      <h2 class="section-title">
+        Three areas of thinking.
+      </h2>
+
+
+      <div class="cards">
+
+        <div class="card">
+
+          <div class="number">01</div>
+
+          <h3>
+            30 Days of Thinking Like an Investor
+          </h3>
+
+          <p>
+            A practical series exploring the mental models investors
+            use to evaluate businesses, risk, competitive advantage,
+            assumptions and uncertainty.
+          </p>
+
+          <span class="arrow">
+            Series below ↓
+          </span>
+
+        </div>
+
+
+        <div class="card">
+
+          <div class="number">02</div>
+
+          <h3>
+            Frameworks
+          </h3>
+
+          <p>
+            Original frameworks for thinking about investment,
+            business opportunities and decision-making across
+            emerging and frontier markets.
+          </p>
+
+          <span class="arrow">
+            SCALE-MR →
+          </span>
+
+        </div>
+
+
+        <div class="card">
+
+          <div class="number">03</div>
+
+          <h3>
+            Perspectives
+          </h3>
+
+          <p>
+            Observations on investing, finance, business,
+            markets and the decisions that shape long-term outcomes.
+          </p>
+
+          <span class="arrow">
+            More coming →
+          </span>
+
+        </div>
+
+
+        <div class="card">
+
+          <div class="number">04</div>
+
+          <h3>
+            Research
+          </h3>
+
+          <p>
+            Academic and applied research exploring finance,
+            markets and the factors that influence business performance.
+          </p>
+
+          <span class="arrow">
+            More coming →
+          </span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- 30 DAYS SERIES -->
+
+    <section class="section" id="series">
+
+      <div class="section-label">
+        30 Days of Thinking Like an Investor
+      </div>
+
+      <h2 class="section-title">
+        One question at a time.
+      </h2>
+
+      <p class="section-intro">
+        A series about how experienced investors think when
+        making decisions under uncertainty.
+      </p>
+
+
+      <div class="series">
+
+        <div class="series-item">
+          <span class="series-number">01</span>
+          <span class="series-title">
+            Developing the Investor's Mindset
+          </span>
+          <span class="series-status">Coming soon</span>
+        </div>
+
+        <div class="series-item">
+          <span class="series-number">02</span>
+          <span class="series-title">
+            Thinking in Probabilities
+          </span>
+          <span class="series-status">Coming soon</span>
+        </div>
+
+        <div class="series-item">
+          <span class="series-number">03</span>
+          <span class="series-title">
+            What Do You Actually Know?
+          </span>
+          <span class="series-status">Coming soon</span>
+        </div>
+
+        <div class="series-item">
+          <span class="series-number">04</span>
+          <span class="series-title">
+            Understanding Risk
+          </span>
+          <span class="series-status">Coming soon</span>
+        </div>
+
+        <div class="series-item">
+          <span class="series-number">05</span>
+          <span class="series-title">
+            Risk Isn't Something to Avoid. It's Something to Price.
+          </span>
+          <span class="series-status">Coming soon</span>
+        </div>
+
+        <div class="series-item">
+          <span class="series-number">06</span>
+          <span class="series-title">
+            A Good Business Can Still Be a Bad Investment.
+          </span>
+          <span class="series-status">Coming soon</span>
+        </div>
+
+        <div class="series-item">
+          <span class="series-number">07</span>
+          <span class="series-title">
+            Separate What You Know From What You Assume.
+          </span>
+          <span class="series-status">Coming soon</span>
+        </div>
+
+        <div class="series-item">
+          <span class="series-number">08</span>
+          <span class="series-title">
+            Understanding What the Market May Be Missing
+          </span>
+          <span class="series-status">Coming soon</span>
+        </div>
+
+        <div class="series-item">
+          <span class="series-number">09</span>
+          <span class="series-title">
+            What Stops Someone Else From Doing the Same Thing?
+          </span>
+          <span class="series-status">Coming soon</span>
+        </div>
+
+        <div class="series-item">
+          <span class="series-number">10</span>
+          <span class="series-title">
+            More questions coming.
+          </span>
+          <span class="series-status">Soon</span>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- CTA -->
+
+    <section class="section">
+
+      <div class="section-label">
+        Continue
+      </div>
+
+      <h2 class="section-title">
+        Think. Build. Connect.
+      </h2>
+
+      <p class="section-intro">
+        Explore the other sides of my work.
+      </p>
+
+      <div style="margin-top: 35px; display: flex; gap: 15px; flex-wrap: wrap;">
+
+        <a
+          href="index.html#build"
+          style="border:1px solid #111; padding:15px 24px; font-size:13px; font-weight:bold;"
+        >
+          BUILD →
+        </a>
+
+        <a
+          href="index.html#connect"
+          style="border:1px solid #111; padding:15px 24px; font-size:13px; font-weight:bold;"
+        >
+          CONNECT →
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <footer>
+
+    <span>
+      © 2026 Brian Mandisodza
+    </span>
+
+    <span>
+      Finance • Investing • Business • Conversations
+    </span>
+
+  </footer>
+
+</body>
+</html>
