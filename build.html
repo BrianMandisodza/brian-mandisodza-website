@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Build | Brian Mandisodza</title>
+
+  <meta
+    name="description"
+    content="Projects, investment initiatives and business building by Brian Mandisodza."
+  >
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #f5f4ef;
+      --text: #111;
+      --muted: #666;
+      --line: #d8d7d1;
+      --card: #eeede7;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 26px 6%;
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      background: rgba(245, 244, 239, 0.94);
+      backdrop-filter: blur(10px);
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+    }
+
+    nav .links {
+      display: flex;
+      gap: 28px;
+      font-size: 13px;
+    }
+
+    nav a:hover {
+      opacity: 0.55;
+    }
+
+    .hero {
+      max-width: 1250px;
+      margin: auto;
+      padding: 130px 6% 110px;
+    }
+
+    .eyebrow {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: #888;
+      margin-bottom: 28px;
+    }
+
+    h1 {
+      font-size: clamp(60px, 10vw, 130px);
+      line-height: 0.9;
+      letter-spacing: -6px;
+      margin-bottom: 45px;
+    }
+
+    .hero p {
+      max-width: 720px;
+      font-size: 21px;
+      color: var(--muted);
+    }
+
+    .section {
+      max-width: 1250px;
+      margin: auto;
+      padding: 100px 6%;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: #888;
+      margin-bottom: 25px;
+    }
+
+    .section-title {
+      font-size: clamp(40px, 6vw, 70px);
+      line-height: 1;
+      letter-spacing: -3px;
+      margin-bottom: 25px;
+    }
+
+    .section-intro {
+      max-width: 700px;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .cards {
+      margin-top: 55px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+
+    .card {
+      background: var(--bg);
+      padding: 45px;
+      min-height: 320px;
+      transition: background 0.25s ease;
+    }
+
+    .card:hover {
+      background: var(--card);
+    }
+
+    .number {
+      font-size: 12px;
+      color: #888;
+      margin-bottom: 55px;
+    }
+
+    .card h3 {
+      font-size: 30px;
+      letter-spacing: -1px;
+      margin-bottom: 15px;
+    }
+
+    .card p {
+      color: var(--muted);
+      max-width: 500px;
+    }
+
+    .arrow {
+      display: inline-block;
+      margin-top: 25px;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .principles {
+      margin-top: 55px;
+      border-top: 1px solid var(--line);
+    }
+
+    .principle {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 25px;
+      padding: 30px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .principle-number {
+      color: #888;
+      font-size: 13px;
+    }
+
+    .principle h3 {
+      font-size: 21px;
+      margin-bottom: 8px;
+    }
+
+    .principle p {
+      color: var(--muted);
+      max-width: 650px;
+    }
+
+    .cta {
+      margin-top: 45px;
+      display: inline-block;
+      border: 1px solid #111;
+      padding: 15px 24px;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .cta:hover {
+      background: #111;
+      color: #fff;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 30px 6%;
+      display: flex;
+      justify-content: space-between;
+      color: #777;
+      font-size: 12px;
+    }
+
+    @media (max-width: 800px) {
+
+      nav {
+        padding: 22px 5%;
+      }
+
+      nav .links {
+        display: none;
+      }
+
+      .hero {
+        padding: 90px 5% 80px;
+      }
+
+      h1 {
+        font-size: clamp(58px, 16vw, 90px);
+        letter-spacing: -4px;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
+
+      .section {
+        padding: 80px 5%;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .principle {
+        grid-template-columns: 50px 1fr;
+      }
+
+      footer {
+        flex-direction: column;
+        gap: 10px;
+        padding: 25px 5%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+
+    <a href="index.html" class="logo">
+      BRIAN MANDISODZA
+    </a>
+
+    <div class="links">
+      <a href="index.html">Home</a>
+      <a href="think.html">Think</a>
+      <a href="build.html">Build</a>
+      <a href="index.html#connect">Connect</a>
+      <a href="index.html#about">About</a>
+    </div>
+
+  </nav>
+
+
+  <main>
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+      <div class="eyebrow">
+        02 / Build
+      </div>
+
+      <h1>
+        Turn ideas<br>
+        into something real.
+      </h1>
+
+      <p>
+        Exploring businesses, projects and investment opportunities
+        where capital, analysis and partnerships can turn an idea
+        into something tangible.
+      </p>
+
+    </section>
+
+
+    <!-- INBRIDGE -->
+
+    <section class="section">
+
+      <div class="section-label">
+        Inbridge Partners
+      </div>
+
+      <h2 class="section-title">
+        From analysis<br>
+        to execution.
+      </h2>
+
+      <p class="section-intro">
+        Inbridge Partners is a platform through which I explore
+        business opportunities, investment initiatives and projects
+        across different markets.
+      </p>
+
+
+      <div class="cards">
+
+        <div class="card">
+
+          <div class="number">01</div>
+
+          <h3>
+            Opportunity Analysis
+          </h3>
+
+          <p>
+            Evaluating businesses and projects through financial
+            analysis, market research, feasibility assessment and
+            structured decision-making.
+          </p>
+
+        </div>
+
+
+        <div class="card">
+
+          <div class="number">02</div>
+
+          <h3>
+            Financial Modelling
+          </h3>
+
+          <p>
+            Building models that translate assumptions into numbers,
+            allowing opportunities to be tested before capital is committed.
+          </p>
+
+        </div>
+
+
+        <div class="card">
+
+          <div class="number">03</div>
+
+          <h3>
+            Development Finance
+          </h3>
+
+          <p>
+            Exploring how capital can support viable businesses,
+            projects and initiatives that have the potential to grow.
+          </p>
+
+        </div>
+
+
+        <div class="card">
+
+          <div class="number">04</div>
+
+          <h3>
+            Partnerships
+          </h3>
+
+          <p>
+            Working with people who bring different forms of capital:
+            financial resources, expertise, networks, market access
+            and execution capability.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- HOW I BUILD -->
+
+    <section class="section">
+
+      <div class="section-label">
+        How I Approach Building
+      </div>
+
+      <h2 class="section-title">
+        Ideas are cheap.<br>
+        Execution isn't.
+      </h2>
+
+      <p class="section-intro">
+        I approach opportunities by testing the underlying assumptions
+        before committing resources. The objective is not to make every
+        idea work. It is to identify which ideas deserve to be pursued.
+      </p>
+
+
+      <div class="principles">
+
+        <div class="principle">
+
+          <div class="principle-number">
+            01
+          </div>
+
+          <div>
+            <h3>
+              Start with the problem.
+            </h3>
+
+            <p>
+              A business becomes interesting when it solves a real problem
+              for someone willing to pay for the solution.
+            </p>
+          </div>
+
+        </div>
+
+
+        <div class="principle">
+
+          <div class="principle-number">
+            02
+          </div>
+
+          <div>
+            <h3>
+              Test the economics.
+            </h3>
+
+            <p>
+              Revenue alone doesn't make a business attractive.
+              The underlying economics need to make sense.
+            </p>
+          </div>
+
+        </div>
+
+
+        <div class="principle">
+
+          <div class="principle-number">
+            03
+          </div>
+
+          <div>
+            <h3>
+              Understand the downside.
+            </h3>
+
+            <p>
+              Before asking how much can be made, understand what can
+              go wrong and how much can be lost.
+            </p>
+          </div>
+
+        </div>
+
+
+        <div class="principle">
+
+          <div class="principle-number">
+            04
+          </div>
+
+          <div>
+            <h3>
+              Find the right partners.
+            </h3>
+
+            <p>
+              Some problems are solved faster through collaboration
+              than through trying to build everything alone.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- FUTURE PROJECTS -->
+
+    <section class="section">
+
+      <div class="section-label">
+        Selected Work
+      </div>
+
+      <h2 class="section-title">
+        More to come.
+      </h2>
+
+      <p class="section-intro">
+        As projects develop, this section will document selected
+        initiatives, investment opportunities, partnerships and
+        lessons from the process of building.
+      </p>
+
+      <a
+        href="https://inbridgepartners.com/"
+        target="_blank"
+        class="cta"
+      >
+        VISIT INBRIDGE PARTNERS →
+      </a>
+
+    </section>
+
+
+    <!-- CTA -->
+
+    <section class="section">
+
+      <div class="section-label">
+        Continue
+      </div>
+
+      <h2 class="section-title">
+        Think. Build. Connect.
+      </h2>
+
+      <p class="section-intro">
+        Explore the other sides of my work.
+      </p>
+
+      <div style="margin-top: 35px; display: flex; gap: 15px; flex-wrap: wrap;">
+
+        <a
+          href="think.html"
+          style="border:1px solid #111; padding:15px 24px; font-size:13px; font-weight:bold;"
+        >
+          THINK →
+        </a>
+
+        <a
+          href="index.html#connect"
+          style="border:1px solid #111; padding:15px 24px; font-size:13px; font-weight:bold;"
+        >
+          CONNECT →
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <footer>
+
+    <span>
+      © 2026 Brian Mandisodza
+    </span>
+
+    <span>
+      Finance • Investing • Business • Conversations
+    </span>
+
+  </footer>
+
+</body>
+</html>
