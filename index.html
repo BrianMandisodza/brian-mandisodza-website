@@ -1,955 +1,293 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Brian Mandisodza | Finance • Investing • Business • Conversations</title>
-
-  <meta name="description" content="Brian Mandisodza — Finance, Investing, Business & Conversations.">
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    :root {
-      --bg: #f5f4ef;
-      --text: #111111;
-      --muted: #666666;
-      --line: #d8d7d1;
-      --card: #eeede7;
-      --white: #ffffff;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    /* NAVIGATION */
-
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 26px 6%;
-      border-bottom: 1px solid var(--line);
-      position: sticky;
-      top: 0;
-      background: rgba(245, 244, 239, 0.94);
-      backdrop-filter: blur(10px);
-      z-index: 10;
-    }
-
-    .logo {
-      font-size: 14px;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-    }
-
-    nav .links {
-      display: flex;
-      gap: 28px;
-      font-size: 13px;
-    }
-
-    nav a:hover {
-      opacity: 0.55;
-    }
-
-    /* HERO */
-
-    .hero {
-      min-height: 82vh;
-      max-width: 1250px;
-      margin: auto;
-      padding: 120px 6% 100px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .eyebrow {
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      color: var(--muted);
-      margin-bottom: 28px;
-    }
-
-    h1 {
-      font-size: clamp(58px, 9vw, 125px);
-      line-height: 0.91;
-      letter-spacing: -6px;
-      max-width: 1050px;
-      margin-bottom: 45px;
-    }
-
-    .hero-description {
-      font-size: 21px;
-      max-width: 680px;
-      color: #555;
-    }
-
-    .scroll-note {
-      margin-top: 70px;
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: #888;
-    }
-
-    /* THREE PATHS */
-
-    .paths {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .path {
-      padding: 65px 7%;
-      min-height: 350px;
-      border-right: 1px solid var(--line);
-      transition: background 0.25s ease;
-    }
-
-    .path:last-child {
-      border-right: none;
-    }
-
-    .path:hover {
-      background: var(--card);
-    }
-
-    .path-number {
-      font-size: 12px;
-      color: #888;
-      margin-bottom: 65px;
-    }
-
-    .path h2 {
-      font-size: 46px;
-      letter-spacing: -2px;
-      margin-bottom: 18px;
-    }
-
-    .path p {
-      color: var(--muted);
-      max-width: 300px;
-    }
-
-    /* GENERAL SECTIONS */
-
-    .section {
-      max-width: 1250px;
-      margin: auto;
-      padding: 120px 6%;
-    }
-
-    .section-label {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      color: #888;
-      margin-bottom: 25px;
-    }
-
-    .section-title {
-      font-size: clamp(42px, 6vw, 76px);
-      line-height: 1;
-      letter-spacing: -4px;
-      margin-bottom: 35px;
-    }
-
-    .section-intro {
-      max-width: 700px;
-      font-size: 19px;
-      color: #555;
-    }
-
-    /* FEATURED WORK */
-
-    .work-grid {
-      margin-top: 60px;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1px;
-      background: var(--line);
-      border: 1px solid var(--line);
-    }
-
-    .work-card {
-      background: var(--bg);
-      padding: 45px;
-      min-height: 270px;
-      transition: background 0.25s ease;
-    }
-
-    .work-card:hover {
-      background: var(--card);
-    }
-
-    .work-number {
-      font-size: 12px;
-      color: #888;
-      margin-bottom: 45px;
-    }
-
-    .work-card h3 {
-      font-size: 27px;
-      letter-spacing: -1px;
-      margin-bottom: 15px;
-    }
-
-    .work-card p {
-      color: var(--muted);
-      max-width: 470px;
-    }
-
-    .arrow {
-      display: inline-block;
-      margin-top: 25px;
-      font-size: 13px;
-      font-weight: bold;
-    }
-
-    /* NOW */
-
-    .now {
-      background: #111;
-      color: white;
-    }
-
-    .now-inner {
-      max-width: 1250px;
-      margin: auto;
-      padding: 120px 6%;
-    }
-
-    .now .section-label {
-      color: #999;
-    }
-
-    .now .section-intro {
-      color: #aaa;
-    }
-
-    .now-list {
-      margin-top: 60px;
-      border-top: 1px solid #333;
-    }
-
-    .now-item {
-      display: grid;
-      grid-template-columns: 100px 1fr;
-      gap: 30px;
-      padding: 28px 0;
-      border-bottom: 1px solid #333;
-    }
-
-    .now-item span {
-      color: #777;
-      font-size: 13px;
-    }
-
-    .now-item p {
-      font-size: 19px;
-    }
-
-    /* ABOUT */
-
-    .about-grid {
-      margin-top: 60px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-    }
-
-    .about-main {
-      font-size: 27px;
-      line-height: 1.4;
-      letter-spacing: -0.5px;
-    }
-
-    .about-side {
-      color: var(--muted);
-      font-size: 17px;
-    }
-
-    .credentials {
-      margin-top: 35px;
-      padding-top: 25px;
-      border-top: 1px solid var(--line);
-    }
-
-    .credentials div {
-      padding: 8px 0;
-      font-size: 14px;
-    }
-
-    /* CONNECT */
-
-    .connect {
-      border-top: 1px solid var(--line);
-    }
-
-    .connect-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-      gap: 50px;
-    }
-
-    .connect-text {
-      max-width: 650px;
-    }
-
-    .connect-text p {
-      font-size: 20px;
-      color: var(--muted);
-    }
-
-    .button {
-      display: inline-block;
-      padding: 16px 26px;
-      border: 1px solid var(--text);
-      font-size: 13px;
-      font-weight: bold;
-      white-space: nowrap;
-      transition: all 0.2s ease;
-    }
-
-    .button:hover {
-      background: var(--text);
-      color: white;
-    }
-
-    /* FOOTER */
-
-    footer {
-      border-top: 1px solid var(--line);
-      padding: 30px 6%;
-      display: flex;
-      justify-content: space-between;
-      color: #777;
-      font-size: 12px;
-    }
-
-    /* MOBILE */
-
-    @media (max-width: 800px) {
-
-      nav {
-        padding: 22px 5%;
-      }
-
-      nav .links {
-        display: none;
-      }
-
-      .hero {
-        min-height: 75vh;
-        padding: 90px 5% 70px;
-      }
-
-      h1 {
-        font-size: clamp(52px, 16vw, 85px);
-        letter-spacing: -4px;
-      }
-
-      .hero-description {
-        font-size: 18px;
-      }
-
-      .paths {
-        grid-template-columns: 1fr;
-      }
-
-      .path {
-        border-right: none;
-        border-bottom: 1px solid var(--line);
-        min-height: 280px;
-      }
-
-      .path:last-child {
-        border-bottom: none;
-      }
-
-      .section,
-      .now-inner {
-        padding: 85px 5%;
-      }
-
-      .work-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .about-grid {
-        grid-template-columns: 1fr;
-        gap: 45px;
-      }
-
-      .about-main {
-        font-size: 23px;
-      }
-
-      .connect-content {
-        flex-direction: column;
-        align-items: start;
-      }
-
-      .now-item {
-        grid-template-columns: 55px 1fr;
-        gap: 15px;
-      }
-
-      footer {
-        flex-direction: column;
-        gap: 10px;
-        padding: 25px 5%;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Brian Mandisodza | Investment research, Inbridge Partners, conversations</title>
+<meta name="description" content="Brian Mandisodza, CFA. Investment research for emerging markets, Inbridge Partners, and conversations about capital. Book a 30-minute chat.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0B1F33; --paper:#F4F6F3; --card:#fff; --line:#D5DAD3;
+  --text:#14202B; --muted:#4F5D69; --on-ink:#F4F6F3; --on-ink-muted:#A9B7C4;
+  --teal:#1F6F6B; --copper:#C9953A; --copper-text:#7F5A18; --blue:#35598A;
+  --serif:"Newsreader",Georgia,"Times New Roman",serif;
+  --sans:"Hanken Grotesk",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--paper);color:var(--text);line-height:1.6;font-size:17px}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--copper);outline-offset:3px}
+.wrap{max-width:1160px;margin:0 auto;padding:0 6%}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+
+/* nav */
+nav{position:sticky;top:0;z-index:10;background:var(--ink);color:var(--on-ink);border-bottom:1px solid #1d3550}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;padding-top:16px;padding-bottom:16px}
+.logo{font-family:var(--serif);font-size:20px;font-weight:600;text-decoration:none}
+.links{display:flex;align-items:center;gap:26px;font-size:15px}
+.links a{text-decoration:none;color:var(--on-ink-muted)}
+.links a:hover{color:var(--on-ink)}
+.btn{display:inline-block;background:var(--copper);color:var(--ink)!important;font-weight:600;padding:13px 24px;border-radius:4px;text-decoration:none;transition:background .2s}
+.btn:hover{background:#DDAA4E}
+.btn.small{padding:9px 16px;font-size:15px}
+.btn.ghost{background:transparent;color:var(--on-ink)!important;border:1px solid #3a5470}
+.btn.ghost:hover{background:#12304d}
+
+/* hero */
+.hero{background:var(--ink);color:var(--on-ink);padding:96px 0 104px}
+.hero .wrap{display:grid;grid-template-columns:1.25fr 1fr;gap:72px;align-items:center}
+h1{font-family:var(--serif);font-weight:500;font-size:clamp(40px,5.6vw,72px);line-height:1.05;letter-spacing:-1.5px;margin-bottom:28px}
+.hero p.lead{color:var(--on-ink-muted);font-size:20px;max-width:540px;margin-bottom:36px}
+.cta-row{display:flex;gap:14px;flex-wrap:wrap}
+.index{display:flex;flex-direction:column;gap:14px}
+.index a{display:block;text-decoration:none;background:#10283f;border-left:6px solid;padding:20px 24px;transition:background .2s}
+.index a:hover{background:#163453}
+.index strong{display:block;font-family:var(--serif);font-size:24px;font-weight:500;margin-bottom:4px}
+.index span{color:var(--on-ink-muted);font-size:15px}
+.i-teal{border-color:#3FA39D!important}.i-copper{border-color:var(--copper)!important}.i-blue{border-color:#6E93C9!important}
+
+/* sections */
+section.block{padding:104px 0;border-top:1px solid var(--line)}
+.tag{display:inline-block;font-size:15px;font-weight:600;padding-left:14px;border-left:5px solid;margin-bottom:22px}
+.t-teal{border-color:var(--teal);color:var(--teal)}
+.t-copper{border-color:var(--copper);color:var(--copper-text)}
+.t-blue{border-color:var(--blue);color:var(--blue)}
+h2{font-family:var(--serif);font-weight:500;font-size:clamp(32px,4.2vw,50px);line-height:1.1;letter-spacing:-1px;max-width:760px;margin-bottom:20px}
+.intro{max-width:660px;color:var(--muted);font-size:19px;margin-bottom:52px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.card{background:var(--card);border:1px solid var(--line);border-top:5px solid var(--teal);padding:32px;display:flex;flex-direction:column}
+.card.copper{border-top-color:var(--copper)}.card.blue{border-top-color:var(--blue)}
+.card h3{font-family:var(--serif);font-weight:500;font-size:25px;line-height:1.2;margin-bottom:12px}
+.card p{color:var(--muted);font-size:16px}
+.card .meta{font-size:14px;font-weight:600;color:var(--muted);margin-bottom:14px}
+.feature{grid-column:1/-1;background:var(--ink);color:var(--on-ink);border:none;border-top:5px solid var(--teal)}
+.feature p,.feature .meta{color:var(--on-ink-muted)}
+.feature h3{font-size:32px}
+.titles{margin-top:22px;border-top:1px solid #234360}
+.titles li{list-style:none;padding:13px 0;border-bottom:1px solid #234360;font-family:var(--serif);font-size:19px}
+.link{margin-top:auto;padding-top:22px;font-weight:600;color:var(--copper-text)}
+.feature .link{color:var(--copper)}
+
+/* services */
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:8px}
+.services .card{border-top-color:var(--copper)}
+.who{display:inline-block;margin-top:16px;font-size:14px;font-weight:600;color:var(--copper-text)}
+
+/* booking */
+.book{background:var(--ink);color:var(--on-ink);border-top:none}
+.book h2{color:var(--on-ink)}
+.book .intro{color:var(--on-ink-muted)}
+.book-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:64px}
+.book ul{list-style:none;margin-bottom:34px}
+.book li{padding:14px 0 14px 20px;border-left:4px solid var(--copper);margin-bottom:12px;background:#10283f;color:var(--on-ink)}
+.book .box{background:#10283f;padding:36px;border-top:5px solid var(--copper)}
+.book .box h3{font-family:var(--serif);font-weight:500;font-size:26px;margin-bottom:14px}
+.book .box p{color:var(--on-ink-muted);margin-bottom:26px}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:64px}
+.about-grid h2{font-size:clamp(30px,3.6vw,42px)}
+.about-grid p{color:var(--muted);margin-bottom:18px;max-width:600px}
+.facts{margin-top:26px;list-style:none}
+.facts li{padding:11px 0;border-top:1px solid var(--line);font-weight:500}
+.facts li:last-child{border-bottom:1px solid var(--line)}
+
+footer{background:var(--ink);color:var(--on-ink-muted);padding:34px 0;font-size:14px;border-top:1px solid #1d3550}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+footer a{color:var(--on-ink)}
+
+@media(max-width:900px){
+  .hero{padding:64px 0 72px}
+  .hero .wrap,.book-grid,.about-grid{grid-template-columns:1fr;gap:40px}
+  .grid,.services{grid-template-columns:1fr}
+  .links a:not(.btn){display:none}
+  section.block{padding:72px 0}
+}
+</style>
 </head>
-
 <body>
 
-  <!-- NAVIGATION -->
-
-  <nav>
-    <div class="logo">BRIAN MANDISODZA</div>
-
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#top">Brian Mandisodza</a>
     <div class="links">
-      <a href="#think">Think</a>
-      <a href="#build">Build</a>
-      <a href="#connect">Connect</a>
+      <a href="#research">Research</a>
+      <a href="#inbridge">Inbridge Partners</a>
+      <a href="#conversations">Conversations</a>
       <a href="#about">About</a>
+      <a class="btn small" data-book href="#book">Book a 30-minute chat</a>
     </div>
-  </nav>
+  </div>
+</nav>
 
-
-  <!-- HERO -->
-
-  <main>
-
-    <section class="hero">
-
-      <div class="eyebrow">
-        Finance • Investing • Business • Conversations
+<header class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <h1>Investment research and judgment for emerging markets.</h1>
+      <p class="lead">I'm Brian Mandisodza, a CFA charterholder. I research businesses and opportunities, run Inbridge Partners, and host conversations about capital.</p>
+      <div class="cta-row">
+        <a class="btn" data-book href="#book">Book a 30-minute chat</a>
+        <a class="btn ghost" href="#research">Read the research</a>
       </div>
+    </div>
+    <div class="index" aria-label="What I do">
+      <a class="i-teal" href="#research"><strong>Research</strong><span>How investors think about risk, returns and business quality.</span></a>
+      <a class="i-copper" href="#inbridge"><strong>Inbridge Partners</strong><span>Helping profitable African businesses become investable.</span></a>
+      <a class="i-blue" href="#conversations"><strong>Conversations</strong><span>Talks, panels and community on finance and capital.</span></a>
+    </div>
+  </div>
+</header>
 
-      <h1>
-        Thinking clearly.<br>
-        Building deliberately.
-      </h1>
+<main>
 
-      <p class="hero-description">
-        Exploring how investors think, how businesses are built,
-        and how meaningful conversations create opportunities.
-      </p>
-
-      <div class="scroll-note">
-        Explore ↓
+<section class="block" id="research">
+  <div class="wrap">
+    <span class="tag t-teal">Research</span>
+    <h2>How investors decide, and what makes a business worth backing.</h2>
+    <p class="intro">My work starts with one question: what must be true for this to work? I apply it to businesses, deals and growth plans, and publish the thinking so it can be challenged.</p>
+    <div class="grid">
+      <div class="card feature">
+        <div class="meta">Series on LinkedIn</div>
+        <h3>30 Days of Thinking Like an Investor</h3>
+        <p>One mental model per post, explained for finance professionals and business owners alike. A selection of titles:</p>
+        <ul class="titles">
+          <li>When Your Best Customer Holds the Leverage</li>
+          <li>Don't Ask Whether an Opportunity Is Good. Ask What Must Be True for This to Work.</li>
+          <li>Why Some Small Businesses Stay Small</li>
+          <li>You Cannot Evaluate a Deal You Already Want.</li>
+        </ul>
+        <a class="link" href="https://www.linkedin.com/in/brian-mandisodza/" target="_blank" rel="noopener noreferrer">Read the series on LinkedIn</a>
       </div>
-
-    </section>
-
-
-    <!-- THREE PATHS -->
-
-    <section class="paths">
-
-      <a href="#think" class="path">
-
-        <div class="path-number">01</div>
-
-        <h2>THINK</h2>
-
-        <p>
-          Investor thinking, frameworks, analysis and ideas
-          for making better decisions under uncertainty.
-        </p>
-
-      </a>
-
-
-      <a href="#build" class="path">
-
-        <div class="path-number">02</div>
-
-        <h2>BUILD</h2>
-
-        <p>
-          Inbridge Partners, projects, investment initiatives
-          and the work of turning ideas into something tangible.
-        </p>
-
-      </a>
-
-
-      <a href="#connect" class="path">
-
-        <div class="path-number">03</div>
-
-        <h2>CONNECT</h2>
-
-        <p>
-          Conversations, events and initiatives that connect
-          people, ideas and opportunities.
-        </p>
-
-      </a>
-
-    </section>
-
-
-    <!-- THINK -->
-
-    <section class="section" id="think">
-
-      <div class="section-label">
-        01 / Think
+      <div class="card">
+        <div class="meta">Framework</div>
+        <h3>SCALE-MR</h3>
+        <p>The seven questions I ask of any opportunity in emerging and frontier markets, before I look at the price.</p>
       </div>
-
-      <h2 class="section-title">
-        Think like an investor.
-      </h2>
-
-      <p class="section-intro">
-        I explore the mental models, frameworks and questions
-        behind better investment and business decisions.
-        The goal isn't to predict perfectly. It's to think clearly
-        under uncertainty.
-      </p>
-
-
-      <div class="work-grid">
-
-        <div class="work-card">
-
-          <div class="work-number">01</div>
-
-          <h3>
-            30 Days of Thinking Like an Investor
-          </h3>
-
-          <p>
-            A series exploring how experienced investors think
-            about risk, businesses, competitive advantage,
-            assumptions and uncertainty.
-          </p>
-
-          <span class="arrow">
-            Coming soon →
-          </span>
-
-        </div>
-
-
-        <div class="work-card">
-
-          <div class="work-number">02</div>
-
-          <h3>
-            SCALE-MR Framework
-          </h3>
-
-          <p>
-            A framework for thinking about opportunities,
-            investment and decision-making across emerging
-            and frontier markets.
-          </p>
-
-          <span class="arrow">
-            Explore framework →
-          </span>
-
-        </div>
-
+      <div class="card">
+        <div class="meta">Focus</div>
+        <h3>Capital and opportunity across borders</h3>
+        <p>Investment readiness, diaspora capital and where money meets private business in Africa.</p>
       </div>
+    </div>
+  </div>
+</section>
 
-    </section>
-
-
-    <!-- BUILD -->
-
-    <section class="section" id="build">
-
-      <div class="section-label">
-        02 / Build
+<section class="block" id="inbridge">
+  <div class="wrap">
+    <span class="tag t-copper">Inbridge Partners</span>
+    <h2>Helping profitable African businesses become investable.</h2>
+    <p class="intro">Profit alone doesn't win funding. Investors need to see clean numbers, a clear story and risks that are understood. Inbridge Partners connects capital with opportunity across investment and venture development, investor education and community. These are the services:</p>
+    <div class="services">
+      <div class="card">
+        <h3>Investability diagnostic</h3>
+        <p>I score your business against the six areas investors weigh and show you where it falls short, in plain language.</p>
+        <span class="who">For business owners</span>
       </div>
-
-      <h2 class="section-title">
-        Turn ideas into something real.
-      </h2>
-
-      <p class="section-intro">
-        Through Inbridge Partners and other initiatives, I explore
-        projects, business opportunities and ways of combining
-        capital, ideas and partnerships to create something tangible.
-      </p>
-
-
-      <div class="work-grid">
-
-        <div class="work-card">
-
-          <div class="work-number">01 / INBRIDGE PARTNERS</div>
-
-          <h3>
-            Building across capital, business and opportunity.
-          </h3>
-
-          <p>
-            A platform focused on projects, investment opportunities,
-            financial analysis and partnerships across emerging markets.
-          </p>
-
-          <span class="arrow">
-            Inbridge Partners →
-          </span>
-
-        </div>
-
-
-        <div class="work-card">
-
-          <div class="work-number">02 / PROJECTS</div>
-
-          <h3>
-            From analysis to execution.
-          </h3>
-
-          <p>
-            Exploring businesses and initiatives where rigorous analysis,
-            financial thinking and strategic partnerships can create value.
-          </p>
-
-          <span class="arrow">
-            Projects →
-          </span>
-
-        </div>
-
+      <div class="card">
+        <h3>Readiness sprint</h3>
+        <p>I work with you to close the gaps the diagnostic found and prepare you to speak to investors and lenders.</p>
+        <span class="who">For business owners</span>
       </div>
-
-    </section>
-
-
-    <!-- CONNECT -->
-
-    <section class="section connect" id="connect">
-
-      <div class="section-label">
-        03 / Connect
+      <div class="card">
+        <h3>Model, valuation and feasibility pack</h3>
+        <p>I build the financial model, value the business or project, and test whether the assumptions hold.</p>
+        <span class="who">For owners and investors</span>
       </div>
-
-      <div class="connect-content">
-
-        <div class="connect-text">
-
-          <h2 class="section-title">
-            Conversations create opportunities.
-          </h2>
-
-          <p>
-            From industry discussions and panels to financial literacy
-            initiatives, I believe some of the most valuable opportunities
-            begin with a good conversation.
-          </p>
-
-        </div>
-
-        <a
-          class="button"
-          href="https://www.linkedin.com/in/brian-mandisodza/"
-          target="_blank"
-        >
-          Connect on LinkedIn →
-        </a>
-
+      <div class="card">
+        <h3>Investor-side due diligence report</h3>
+        <p>I examine a target's financials and assumptions, then report what must be true for the deal to work.</p>
+        <span class="who">For investors</span>
       </div>
-
-    </section>
-
-
-    <!-- FEATURED WORK -->
-
-    <section class="section">
-
-      <div class="section-label">
-        Selected Work
+      <div class="card">
+        <h3>Workshops</h3>
+        <p>I teach investment readiness and investor thinking to founders, teams and communities.</p>
+        <span class="who">For groups and organisations</span>
       </div>
-
-      <h2 class="section-title">
-        Things I'm building.
-      </h2>
-
-      <div class="work-grid">
-
-        <div class="work-card">
-
-          <div class="work-number">THINK</div>
-
-          <h3>
-            30 Days of Thinking Like an Investor
-          </h3>
-
-          <p>
-            A practical exploration of investor thinking,
-            one mental model at a time.
-          </p>
-
-        </div>
-
-
-        <div class="work-card">
-
-          <div class="work-number">BUILD</div>
-
-          <h3>
-            Inbridge Partners
-          </h3>
-
-          <p>
-            Exploring projects, investment opportunities,
-            partnerships and business development.
-          </p>
-
-        </div>
-
-
-        <div class="work-card">
-
-          <div class="work-number">FRAMEWORK</div>
-
-          <h3>
-            SCALE-MR
-          </h3>
-
-          <p>
-            A framework for approaching opportunities across
-            emerging and frontier markets.
-          </p>
-
-        </div>
-
-
-        <div class="work-card">
-
-          <div class="work-number">CONNECT</div>
-
-          <h3>
-            Financial Literacy & Conversations
-          </h3>
-
-          <p>
-            Creating spaces where people can discuss finance,
-            business, investing and opportunity.
-          </p>
-
-        </div>
-
+      <div class="card" style="background:var(--ink);color:var(--on-ink);border-color:var(--ink)">
+        <h3>Not sure which fits?</h3>
+        <p style="color:var(--on-ink-muted)">Start with a 30-minute chat. I'll tell you honestly where to begin.</p>
+        <a class="btn" style="margin-top:22px;align-self:flex-start" data-book href="#book">Book a chat</a>
       </div>
+    </div>
+  </div>
+</section>
 
-    </section>
-
-
-    <!-- NOW -->
-
-    <section class="now">
-
-      <div class="now-inner">
-
-        <div class="section-label">
-          Now
-        </div>
-
-        <h2 class="section-title">
-          What I'm working on.
-        </h2>
-
-        <p class="section-intro">
-          A snapshot of the ideas, projects and conversations
-          currently taking my attention.
-        </p>
-
-
-        <div class="now-list">
-
-          <div class="now-item">
-            <span>01</span>
-            <p>
-              Developing the 30 Days of Thinking Like an Investor series.
-            </p>
-          </div>
-
-          <div class="now-item">
-            <span>02</span>
-            <p>
-              Building Inbridge Partners and exploring new projects
-              and investment opportunities.
-            </p>
-          </div>
-
-          <div class="now-item">
-            <span>03</span>
-            <p>
-              Exploring opportunities across finance, investing
-              and international markets.
-            </p>
-          </div>
-
-          <div class="now-item">
-            <span>04</span>
-            <p>
-              Hosting conversations around finance, business,
-              entrepreneurship and financial literacy.
-            </p>
-          </div>
-
-        </div>
-
+<section class="block" id="conversations">
+  <div class="wrap">
+    <span class="tag t-blue">Conversations</span>
+    <h2>The best deals and ideas usually start with a good conversation.</h2>
+    <p class="intro">I speak, moderate and host discussions that make finance and investing easier to approach for founders, professionals and communities.</p>
+    <div class="grid">
+      <div class="card blue">
+        <div class="meta">Talk</div>
+        <h3>From Profitable to Investable</h3>
+        <p>Why successful women-owned businesses still struggle to attract funding, what investors assess, and a 30 to 90 day readiness plan. Prepared for an OWIT event.</p>
       </div>
-
-    </section>
-
-
-    <!-- ABOUT -->
-
-    <section class="section" id="about">
-
-      <div class="section-label">
-        About
+      <div class="card blue">
+        <div class="meta">Panel in preparation</div>
+        <h3>Bridging diaspora capital into Zimbabwe</h3>
+        <p>What diaspora investors need to feel comfortable deploying capital back home, and what people at home want from them. I'll moderate.</p>
       </div>
+    </div>
+    <p class="intro" style="margin:36px 0 0">Want me to speak at or moderate your event? <a data-book href="#book" style="color:var(--blue);font-weight:600">Book a chat</a> and tell me about it.</p>
+  </div>
+</section>
 
-      <h2 class="section-title">
-        About Brian.
-      </h2>
+<section class="block book" id="book">
+  <div class="wrap book-grid">
+    <div>
+      <h2>Book a 30-minute chat.</h2>
+      <p class="intro">A short, direct conversation. You tell me where you are, I tell you honestly whether and how I can help.</p>
+      <ul>
+        <li>You own an established, profitable business and are weighing outside capital.</li>
+        <li>You're an investor who wants a second view on an opportunity.</li>
+        <li>You're organising a talk, panel or workshop on finance or investing.</li>
+      </ul>
+    </div>
+    <div class="box">
+      <h3>Pick a time that suits you.</h3>
+      <p>Send one line on what you'd like to discuss when you book. That keeps the 30 minutes useful.</p>
+      <a class="btn" data-book href="#book">Choose a time</a>
+    </div>
+  </div>
+</section>
 
+<section class="block" id="about">
+  <div class="wrap about-grid">
+    <h2>About Brian</h2>
+    <div>
+      <p>I'm a finance professional and CFA charterholder based in Istanbul. My work sits where financial analysis, investment thinking and business development meet.</p>
+      <p>By day I'm a Senior Financial Analyst. Outside of that I research businesses and opportunities, build Inbridge Partners, and serve as president of Anatolia Toastmasters.</p>
+      <ul class="facts">
+        <li>CFA charterholder</li>
+        <li>MA in International Finance, Istanbul Commerce University</li>
+        <li>Senior Financial Analyst</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
-      <div class="about-grid">
+</main>
 
-        <div class="about-main">
+<footer>
+  <div class="wrap">
+    <span>© 2026 Brian Mandisodza. Views are my own and are not investment advice.</span>
+    <span><a href="https://www.linkedin.com/in/brian-mandisodza/" target="_blank" rel="noopener noreferrer">LinkedIn</a></span>
+  </div>
+</footer>
 
-          Finance professional, CFA Charterholder and
-          business builder interested in investing,
-          financial markets, entrepreneurship and the
-          conversations that connect people across borders.
-
-        </div>
-
-
-        <div class="about-side">
-
-          <p>
-            My work sits at the intersection of finance,
-            investment thinking and business development.
-          </p>
-
-          <p style="margin-top: 25px;">
-            I currently work in financial analysis and accounts
-            management while developing independent projects,
-            investment ideas and initiatives focused on
-            financial literacy and opportunity.
-          </p>
-
-
-          <div class="credentials">
-
-            <div>
-              CFA Charterholder
-            </div>
-
-            <div>
-              MA in International Finance
-            </div>
-
-            <div>
-              Senior Financial Analyst
-            </div>
-
-            <div>
-              Finance • Investing • Business
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- FINAL CONNECT -->
-
-    <section class="section connect">
-
-      <div class="connect-content">
-
-        <div class="connect-text">
-
-          <div class="section-label">
-            Get in touch
-          </div>
-
-          <h2 class="section-title">
-            Let's have a conversation.
-          </h2>
-
-          <p>
-            For investment ideas, business opportunities,
-            collaborations or simply a conversation worth having.
-          </p>
-
-        </div>
-
-
-        <a
-          class="button"
-          href="https://www.linkedin.com/in/brian-mandisodza/"
-          target="_blank"
-        >
-          LinkedIn →
-        </a>
-
-      </div>
-
-    </section>
-
-  </main>
-
-
-  <!-- FOOTER -->
-
-  <footer>
-
-    <span>
-      © 2026 Brian Mandisodza
-    </span>
-
-    <span>
-      Finance • Investing • Business • Conversations
-    </span>
-
-  </footer>
-
+<script>
+  // Replace this one line with your Cal.com or Calendly link. Every "Book" button uses it.
+  var BOOKING_URL = "";
+  if (BOOKING_URL) {
+    document.querySelectorAll("[data-book]").forEach(function (a) {
+      a.href = BOOKING_URL; a.target = "_blank"; a.rel = "noopener noreferrer";
+    });
+  }
+</script>
 </body>
 </html>
